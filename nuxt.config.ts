@@ -1,6 +1,25 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ["@nuxt/ui", "@nuxt/eslint"],
-  compatibilityDate: "2024-08-30"
+
+  modules: [
+    "@nuxt/ui",
+    "@nuxt/eslint",
+    "@vueuse/nuxt",
+    "@nuxtjs/google-fonts",
+  ],
+
+  colorMode: {
+    preference: 'light'
+  },
+
+  googleFonts: {
+    download: true,
+    families: {
+      'Roboto+Mono': true,
+      'Martian+Mono': true
+    }
+  },
+  
+  compatibilityDate: "2024-08-30",
 })
