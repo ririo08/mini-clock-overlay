@@ -4,6 +4,10 @@ export default defineNuxtConfig({
 
   ssr: false,
 
+  app: {
+    baseURL: '/mini-clock-overlay/'
+  },
+
   modules: [
     "@nuxt/ui",
     "@nuxt/eslint",
