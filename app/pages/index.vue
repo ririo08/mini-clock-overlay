@@ -4,7 +4,7 @@ const { format, position, size } = useClockSettings()
 const { defaultFormat, defaultSize, defaultPosition } = useDefaultValue()
 
 const url = computed(() => {
-  const base = new URL(location.origin + '/clock')
+  const base = new URL(`${location.origin}${useRuntimeConfig().app.baseURL}clock`)
   const searchParams = new URLSearchParams({
     format: format.value!,
     position: position.value!,
