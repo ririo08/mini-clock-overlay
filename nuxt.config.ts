@@ -1,3 +1,4 @@
+import packageJson from './package.json'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
@@ -6,6 +7,12 @@ export default defineNuxtConfig({
 
   app: {
     baseURL: '/mini-clock-overlay/'
+  },
+
+  runtimeConfig: {
+    public: {
+      appVersion: packageJson.version
+    },
   },
 
   modules: [
@@ -27,5 +34,8 @@ export default defineNuxtConfig({
     }
   },
   
+  future: {
+    compatibilityVersion: 4,
+  },
   compatibilityDate: "2024-08-30",
 })
