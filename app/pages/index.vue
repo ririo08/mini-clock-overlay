@@ -1,13 +1,12 @@
 <script setup lang="ts">
-const config = useRuntimeConfig()
-const version = config.public.appVersion
+const { version } = useVersion()
 </script>
 
 <template>
   <div class="max-w-2xl m-auto">
     <h1 class="text-2xl font-bold text-center my-2">デジタルミニ時計 オーバーレイ</h1>
-    <div>
-      {{ version }}
+    <div class="text-right text-lg">
+      <a href="https://github.com/ririo08/mini-clock-overlay/releases" target="_blank">ver {{ version }}</a>
     </div>
     <div class="bg-animate w-full h-[300px] relative">
       <MiniClock position="bottom-right" size="2160" />
