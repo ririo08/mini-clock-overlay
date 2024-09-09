@@ -1,15 +1,13 @@
 <script setup lang="ts">
-const config = defineProps<{
-  format?: string
-  size?: '720' | '1080' | '2160'
-  position?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right'
-}>()
+import type { ClockConfig } from '~/composables/settings';
+
+const config = defineProps<ClockConfig>()
 
 const date = useNow()
 
 // config
 const format = computed(() => config.format ?? 'YYYY/MM/DD(ddd) HH:mm:ss')
-const formattedDate = useDateFormat(date, format.value)
+const formattedDate = useDateFormat(date, format)
 const size = computed(() => {
   switch (config.size) {
     case '720': return 'text-sm'

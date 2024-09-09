@@ -1,9 +1,10 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const { format, position, size } = useClockSettings()
+
+</script>
 
 <template>
-  <MiniClock size="2160" position="top-left"/>
+  <MiniClock :format="format" :position="position" :size="size" />
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
