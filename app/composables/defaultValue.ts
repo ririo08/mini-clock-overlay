@@ -15,9 +15,14 @@ export const useDefaultValue = () => {
     'bottom-left',
     'bottom-right',
   ]
+  const defaultFont: Exclude<ClockConfig['font'], undefined>[] = [
+    'Martian',
+    'Roboto',
+  ]
   return {
     defaultFormat,
     defaultSize,
     defaultPosition,
+    defaultFont,
   }
 }

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const { version } = useVersion()
-const { format, position, size } = useClockSettings()
-const { defaultFormat, defaultSize, defaultPosition } = useDefaultValue()
+const { format, position, size, font } = useClockSettings()
+const { defaultFormat, defaultSize, defaultPosition, defaultFont } = useDefaultValue()
 
 const url = computed(() => {
   const base = new URL(`${location.origin}${useRuntimeConfig().app.baseURL}clock`)
@@ -9,12 +9,13 @@ const url = computed(() => {
     format: format.value!,
     position: position.value!,
     size: size.value!,
+    font: font.value!,
   })
   base.search = searchParams.toString()
   return base.toString()
 })
 
-const urlName = computed(() => `フォーマット: ${format.value},サイズ: ${size.value}, 配置: ${position.value}`)
+const urlName = computed(() => `フォーマット: ${format.value},サイズ: ${size.value}, 配置: ${position.value}, フォント: ${font.value}`)
 </script>
 
 <template>
@@ -33,6 +34,7 @@ const urlName = computed(() => `フォーマット: ${format.value},サイズ: $
         :format="format"
         :position="position"
         :size="size"
+        :font="font"
       />
     </div>
     <div class="mt-2 grid gap-y-4">
@@ -53,6 +55,16 @@ const urlName = computed(() => `フォーマット: ${format.value},サイズ: $
         <USelect
           v-model="size"
           :items="defaultSize"
+          class="w-full"
+        />
+      </UFormField>
+      <UFormField
+        label="フォント"
+        name="font"
+      >
+        <USelect
+          v-model="font"
+          :items="defaultFont"
           class="w-full"
         />
       </UFormField>

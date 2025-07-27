@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { format, position, size } = useClockSettings()
+const { format, position, size, font } = useClockSettings()
 </script>
 
 <template>
@@ -7,6 +7,7 @@ const { format, position, size } = useClockSettings()
     :format="format"
     :position="position"
     :size="size"
+    :font="font"
   />
 </template>
 
