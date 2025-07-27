@@ -18,6 +18,6 @@ export const useClockSettings = () => {
   return {
     format,
     size,
-    position
+    position,
   }
 }

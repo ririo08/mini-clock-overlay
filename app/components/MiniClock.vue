@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ClockConfig } from '~/composables/settings';
+import type { ClockConfig } from '~/composables/settings'
 
 const config = defineProps<ClockConfig>()
 
@@ -20,31 +20,33 @@ const position = computed(() => {
   switch (config.position) {
     case 'top-left': return {
       top: 0,
-      left: 0
+      left: 0,
     }
     case 'top-right': return {
       top: 0,
-      right: 0
+      right: 0,
     }
     case 'bottom-left': return {
       bottom: 0,
-      left: 0
+      left: 0,
     }
     case 'bottom-right': return {
       bottom: 0,
-      right: 0
+      right: 0,
     }
     default: return {
       top: 0,
-      left: 0
+      left: 0,
     }
   }
 })
-
 </script>
 
 <template>
-  <div class="absolute bg-orange-50/80 py-1 px-3 m-2 rounded-lg" :style="position">
+  <div
+    class="absolute bg-orange-50/80 py-1 px-3 m-2 rounded-lg"
+    :style="position"
+  >
     <span :class="`${size} font-bold date`">{{ formattedDate }}</span>
   </div>
 </template>

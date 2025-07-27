@@ -2,12 +2,12 @@ export const useDefaultValue = () => {
   const defaultFormat = [
     'YYYY/MM/DD(ddd) HH:mm:ss',
     'YYYY/MM/DD HH:mm:ss',
-    'MM/DD HH:mm'
+    'MM/DD HH:mm',
   ]
   const defaultSize: Exclude<ClockConfig['size'], undefined>[] = [
     '720',
     '1080',
-    '2160'
+    '2160',
   ]
   const defaultPosition: Exclude<ClockConfig['position'], undefined>[] = [
     'top-left',
@@ -18,6 +18,6 @@ export const useDefaultValue = () => {
   return {
     defaultFormat,
     defaultSize,
-    defaultPosition
+    defaultPosition,
   }
 }
