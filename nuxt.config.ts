@@ -19,9 +19,9 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
-  colorMode: {
-    preference: 'light',
-    fallback: 'light',
+  ui: {
+    // OBS オーバーレイのため常にライトテーマ
+    colorMode: false,
   },
 
   runtimeConfig: {
@@ -44,9 +44,10 @@ export default defineNuxtConfig({
 
   googleFonts: {
     download: true,
+    // @keep-sorted
     families: {
-      'Roboto+Mono': true,
       'Martian+Mono': true,
+      'Roboto+Mono': true,
     },
   },
 })
