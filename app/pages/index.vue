@@ -35,42 +35,45 @@ const urlName = computed(() => `フォーマット: ${format.value},サイズ: $
         :size="size"
       />
     </div>
-    <div class="mt-2">
-      <UFormGroup
+    <div class="mt-2 grid gap-y-4">
+      <UFormField
         label="フォーマット"
         name="format"
       >
-        <USelectMenu
+        <USelect
           v-model="format"
-          :options="defaultFormat"
+          :items="defaultFormat"
+          class="w-full"
         />
-      </UFormGroup>
-      <UFormGroup
+      </UFormField>
+      <UFormField
         label="サイズ"
         name="size"
       >
-        <USelectMenu
+        <USelect
           v-model="size"
-          :options="defaultSize"
+          :items="defaultSize"
+          class="w-full"
         />
-      </UFormGroup>
-      <UFormGroup
+      </UFormField>
+      <UFormField
         label="配置"
         name="position"
       >
-        <USelectMenu
+        <USelect
           v-model="position"
-          :options="defaultPosition"
+          :items="defaultPosition"
+          class="w-full"
         />
-      </UFormGroup>
-      <UFormGroup
+      </UFormField>
+      <UFormField
         label="以下のリンクをコピーしてOBSに貼り付け！"
         name="position"
       >
         <UButton :to="url">
           {{ urlName }}
         </UButton>
-      </UFormGroup>
+      </UFormField>
     </div>
   </div>
 </template>
