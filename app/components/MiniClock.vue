@@ -39,7 +39,7 @@ const font = computed(() => {
 
 <template>
   <div
-    class="absolute bg-orange-50/80 m-2 rounded-lg"
+    class="absolute bg-orange-50/80 m-2 rounded-lg tabular-nums"
     :style="{ ...position, ...paddingStyle }"
   >
     <span
