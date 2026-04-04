@@ -1,44 +1,91 @@
 <script setup lang="ts">
 const { version } = useVersion()
-const { format, position, size } = useClockSettings()
-const { defaultFormat, defaultSize, defaultPosition } = useDefaultValue()
+const { format, position, size, font } = useClockSettings()
+const { defaultFormat, defaultSize, defaultPosition, defaultFont } = useDefaultValue()
 
 const url = computed(() => {
   const base = new URL(`${location.origin}${useRuntimeConfig().app.baseURL}clock`)
   const searchParams = new URLSearchParams({
     format: format.value!,
     position: position.value!,
-    size: size.value!
+    size: size.value!,
+    font: font.value!,
   })
   base.search = searchParams.toString()
   return base.toString()
 })
 
-const urlName = computed(() => `フォーマット: ${format.value},サイズ: ${size.value}, 配置: ${position.value}`)
+const urlName = computed(() => `フォーマット: ${format.value},サイズ: ${size.value}, 配置: ${position.value}, フォント: ${font.value}`)
 </script>
 
 <template>
   <div class="max-w-2xl m-auto">
-    <h1 class="text-2xl font-bold text-center my-2">デジタルミニ時計 オーバーレイ</h1>
+    <h1 class="text-2xl font-bold text-center my-2">
+      デジタルミニ時計 オーバーレイ
+    </h1>
     <div class="text-right text-lg">
-      <a href="https://github.com/ririo08/mini-clock-overlay/releases" target="_blank">ver {{ version }}</a>
+      <a
+        href="https://github.com/ririo08/mini-clock-overlay/releases"
+        target="_blank"
+      >ver {{ version }}</a>
     </div>
     <div class="bg-animate w-full h-[300px] relative">
-      <MiniClock :format="format" :position="position" :size="size" />
+      <MiniClock
+        :format="format"
+        :position="position"
+        :size="size"
+        :font="font"
+      />
     </div>
-    <div class="mt-2">
-      <UFormGroup label="フォーマット" name="format">
-        <USelectMenu v-model="format" :options="defaultFormat" />
-      </UFormGroup>
-      <UFormGroup label="サイズ" name="size">
-        <USelectMenu v-model="size" :options="defaultSize" />
-      </UFormGroup>
-      <UFormGroup label="配置" name="position">
-        <USelectMenu v-model="position" :options="defaultPosition" />
-      </UFormGroup>
-      <UFormGroup label="以下のリンクをコピーしてOBSに貼り付け！" name="position">
-        <UButton :to="url">{{ urlName }}</UButton>
-      </UFormGroup>
+    <div class="mt-2 grid gap-y-4">
+      <UFormField
+        label="フォーマット"
+        name="format"
+      >
+        <USelect
+          v-model="format"
+          :items="defaultFormat"
+          class="w-full"
+        />
+      </UFormField>
+      <UFormField
+        label="サイズ"
+        name="size"
+      >
+        <USelect
+          v-model="size"
+          :items="defaultSize"
+          class="w-full"
+        />
+      </UFormField>
+      <UFormField
+        label="フォント"
+        name="font"
+      >
+        <USelect
+          v-model="font"
+          :items="defaultFont"
+          class="w-full"
+        />
+      </UFormField>
+      <UFormField
+        label="配置"
+        name="position"
+      >
+        <USelect
+          v-model="position"
+          :items="defaultPosition"
+          class="w-full"
+        />
+      </UFormField>
+      <UFormField
+        label="以下のリンクをコピーしてOBSに貼り付け！"
+        name="position"
+      >
+        <UButton :to="url">
+          {{ urlName }}
+        </UButton>
+      </UFormField>
     </div>
   </div>
 </template>

@@ -1,6 +1,6 @@
 {
-  "name": "nuxt-app",
-  "version": "0.1.0",
+  "name": "mini-clock-overlay",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -10,14 +10,19 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "bun eslint . --cache",
-    "lint:fix": "bun lint --fix"
+    "lint:fix": "bun lint --fix",
+    "typecheck": "nuxt typecheck"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
-    "@nuxt/eslint": "^0.7.0",
-    "@nuxt/ui": "^2.18.4",
+    "@nuxt/eslint": "^1.15.2",
+    "@nuxt/ui": "^4.6.1",
     "@nuxtjs/google-fonts": "^3.2.0",
-    "@vueuse/nuxt": "^12.0.0",
-    "nuxt": "^3.13.1"
+    "@vueuse/nuxt": "^14.2.1",
+    "eslint-plugin-command": "^3.5.2",
+    "nuxt": "^4.4.2",
+    "tailwindcss": "^4.2.2",
+    "vue-router": "^5.0.4",
+    "vue-tsc": "^3.2.6"
   }
 }
